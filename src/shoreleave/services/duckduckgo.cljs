@@ -1,5 +1,5 @@
 (ns shoreleave.client.services.duckduckgo
-  (:require [shoreleave.client.remote :as remote]))
+  (:require [shoreleave.remote :as remote]))
 
 (defn zero-click [query callback-fn]
   (remote/jsonp "http://api.duckduckgo.com"
