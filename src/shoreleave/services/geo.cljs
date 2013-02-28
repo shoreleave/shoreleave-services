@@ -26,8 +26,8 @@
 ;; TODO: if we want the zip, it's the last element in (.-address_components geo-obj)
 (defn mapify-location [geocode-results]
   (let [[geo-obj] geocode-results
-        lat (.geometry.location.lat geo-obj)
-        lng (.geometry.location.lng geo-obj)]
+        lat (.-geometry.location.lat geo-obj)
+        lng (.-geometry.location.lng geo-obj)]
     {:lat         lat
      :lng         lng
      :latlng-str  (str lat "," lng)
