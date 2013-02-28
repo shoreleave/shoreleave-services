@@ -3028,8 +3028,8 @@ net.brehaut.ClojureTools = (function (SH) {
     build_tree: build_tree
   };
 })(SyntaxHighlighter);
-</script><title>shoreleave/shoreleave-services -- Marginalia</title></head><body><table><tr><td class="docs"><div class="header"><h1 class="project-name">shoreleave/shoreleave-services</h1><h2 class="project-version">0.2.2</h2><br /><p>A smarter client-side with ClojureScript : Shoreleave's API for third-party remote services</p>
-</div><div class="dependencies"><h3>dependencies</h3><table><tr><td class="dep-name">org.clojure/clojure</td><td class="dotted"><hr /></td><td class="dep-version">1.4.0</td></tr><tr><td class="dep-name">shoreleave/shoreleave-core</td><td class="dotted"><hr /></td><td class="dep-version">0.2.2</td></tr><tr><td class="dep-name">shoreleave/shoreleave-remote</td><td class="dotted"><hr /></td><td class="dep-version">0.2.2</td></tr></table></div><div class="dependencies"><h3>dev dependencies</h3><table><tr><td class="dep-name">lein-marginalia</td><td class="dotted"><hr /></td><td class="dep-version">0.7.1</td></tr></table></div></td><td class="codes" style="text-align: center; vertical-align: middle;color: #666;padding-right:20px"><br /><br /><br />(this space intentionally left almost blank)</td></tr><tr><td class="docs"><div class="toc"><a name="toc"><h3>namespaces</h3></a><ul><li><a href="#shoreleave.client.services.duckduckgo">shoreleave.client.services.duckduckgo</a></li><li><a href="#shoreleave.services.geo">shoreleave.services.geo</a></li><li><a href="#shoreleave.client.services.wikipedia">shoreleave.client.services.wikipedia</a></li></ul></div></td><td class="codes">&nbsp;</td></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#shoreleave.client.services.duckduckgo" name="shoreleave.client.services.duckduckgo"><h1 class="project-name">shoreleave.client.services.duckduckgo</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+</script><title>shoreleave/shoreleave-services -- Marginalia</title></head><body><table><tr><td class="docs"><div class="header"><h1 class="project-name">shoreleave/shoreleave-services</h1><h2 class="project-version">0.3.0</h2><br /><p>A smarter client-side with ClojureScript : Shoreleave's API for third-party remote services</p>
+</div><div class="dependencies"><h3>dependencies</h3><table><tr><td class="dep-name">org.clojure/clojure</td><td class="dotted"><hr /></td><td class="dep-version">1.4.0</td></tr><tr><td class="dep-name">shoreleave/shoreleave-core</td><td class="dotted"><hr /></td><td class="dep-version">0.3.0</td></tr><tr><td class="dep-name">shoreleave/shoreleave-remote</td><td class="dotted"><hr /></td><td class="dep-version">0.3.0</td></tr></table></div><div class="dependencies"><h3>dev dependencies</h3><table><tr><td class="dep-name">lein-marginalia</td><td class="dotted"><hr /></td><td class="dep-version">0.7.1</td></tr></table></div></td><td class="codes" style="text-align: center; vertical-align: middle;color: #666;padding-right:20px"><br /><br /><br />(this space intentionally left almost blank)</td></tr><tr><td class="docs"><div class="toc"><a name="toc"><h3>namespaces</h3></a><ul><li><a href="#shoreleave.client.services.duckduckgo">shoreleave.client.services.duckduckgo</a></li><li><a href="#shoreleave.services.geo">shoreleave.services.geo</a></li><li><a href="#shoreleave.client.services.wikipedia">shoreleave.client.services.wikipedia</a></li></ul></div></td><td class="codes">&nbsp;</td></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#shoreleave.client.services.duckduckgo" name="shoreleave.client.services.duckduckgo"><h1 class="project-name">shoreleave.client.services.duckduckgo</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns shoreleave.client.services.duckduckgo
   (:require [shoreleave.remote :as remote]))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defn zero-click [query callback-fn]
@@ -3037,31 +3037,39 @@ net.brehaut.ClojureTools = (function (SH) {
                 :content {:format &quot;json&quot; :pretty &quot;0&quot;
                           :q query}
                 :on-success #(callback-fn %)))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#shoreleave.services.geo" name="shoreleave.services.geo"><h1 class="project-name">shoreleave.services.geo</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
-</td><td class="codes"><pre class="brush: clojure">(ns shoreleave.services.geo
-  (:require [shoreleave.common :as common]))</pre></td></tr><tr><td class="docs"><p>TODO replace this with: http://maps.google.com/maps/geo?q=nyc&amp;sensor=false
+</td><td class="codes"><pre class="brush: clojure">(ns shoreleave.services.geo)</pre></td></tr><tr><td class="docs"><p>TODO replace this with: http://maps.google.com/maps/geo?q=nyc&amp;sensor=false
 and http://closure-library.googlecode.com/svn/docs/class<em>goog</em>net_Jsonp.html
 goog.net.Jsonp(uri, opt_callbackParamName) </p>
 </td><td class="codes"></td></tr><tr><td class="docs"><p>TODO We should do an include-js function that pulls in google maps:</p>
 
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script> 
-
-<script>window.jQuery || document.write('<script src="../public/js/jquery-1.7.1.min.js"><\/script>')</script> 
-</td><td class="codes"></td></tr><tr><td class="docs"><p>TODO: I really need to extern these in here</p>
-</td><td class="codes"><pre class="brush: clojure">(def geocoder (js/google.maps.Geocoder.))</pre></td></tr><tr><td class="docs"><p>TODO: if we want the zip, it's the last element in (.-address_components geo-obj)</p>
+</td><td class="codes"></td></tr><tr><td class="docs"><p>(defn include-js []
+ (js/document.write "<script src=\"http://maps.google.com/maps/api/js?sensor=false\"></script>"))</p>
+</td><td class="codes"></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defn include-js []
+  (js/document.write &quot;&lt;script&gt;window.google || document.write('&lt;script src=\&quot;http://maps.google.com/maps/api/js?sensor=false\&quot;&gt;&lt;/script&gt;')&lt;/script&gt;&quot;))</pre></td></tr><tr><td class="docs"><p>TODO: I really need to extern these in here</p>
+</td><td class="codes"><pre class="brush: clojure">(defn geocoder []
+  (try
+    (when (undefined? js/google)
+      (include-js))
+    (catch js/Error err
+      (include-js))
+    (finally (js/google.maps.Geocoder.)))
+  (js/google.maps.Geocoder.))</pre></td></tr><tr><td class="docs"><p>TODO: if we want the zip, it's the last element in (.-address_components geo-obj)</p>
 </td><td class="codes"><pre class="brush: clojure">(defn mapify-location [geocode-results]
   (let [[geo-obj] geocode-results
-        lat (.geometry.location.lat geo-obj)
-        lng (.geometry.location.lng geo-obj)]
+        lat (.-geometry.location.lat geo-obj)
+        lng (.-geometry.location.lng geo-obj)]
     {:lat         lat
      :lng         lng
      :latlng-str  (str lat &quot;,&quot; lng)
-     :formatted   geo-obj.formatted_address}))</pre></td></tr><tr><td class="docs">
+     :formatted   (.-formatted_address geo-obj)}))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defn normalize-location
   ([loc-str callback]
    (normalize-location loc-str callback mapify-location))
   ([loc-str callback process-location-fn]
-   (.geocode geocoder
-     (common/clj-&gt;js {:address loc-str})
+   (.geocode (geocoder)
+     (clj-&gt;js {:address loc-str})
      #(callback (process-location-fn %1)))))</pre></td></tr><tr><td class="docs"><p>This version should probably be used instead of `#(callback ...)
 It makes sure that the call was successful</p>
 </td><td class="codes"></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#shoreleave.client.services.wikipedia" name="shoreleave.client.services.wikipedia"><h1 class="project-name">shoreleave.client.services.wikipedia</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
